@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/tortoisebot/humble_ws/src/tortoisebot/YDLidar-SDK/. -I/home/tortoisebot/humble_ws/src/tortoisebot/YDLidar-SDK/core -I/home/tortoisebot/humble_ws/src/tortoisebot/YDLidar-SDK/src -I/home/tortoisebot/humble_ws/src/tortoisebot/YDLidar-SDK -I/home/tortoisebot/humble_ws/src/tortoisebot/YDLidar-SDK/.. -I/home/tortoisebot/humble_ws/src/tortoisebot/YDLidar-SDK/build/examples
+CXX_INCLUDES = -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK/. -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK/core -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK/src -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK/.. -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK/build/examples -I/home/shashank/ROS2_Projects/git/tortoisebot_swarmrobot/YDLidar-SDK/build
 
 CXX_FLAGS =  -std=c++11 -fPIC -std=c++11
 
