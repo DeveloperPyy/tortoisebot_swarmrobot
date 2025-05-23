@@ -1,4 +1,4 @@
-bot1:
+bot2:
   ydlidar_ros2_driver_node:
     ros__parameters:
       port: /dev/ttyUSB0

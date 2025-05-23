@@ -63,7 +63,7 @@ def generate_launch_description():
       ],
       parameters= [{'use_sim_time':use_sim_time}],
       output='screen',
-      remappings=[('/scan', '/bot1/scan')]
+      remappings=[('/scan', '/bot2/scan')]
     ),
     Node(
       package='cartographer_ros',
@@ -76,7 +76,7 @@ def generate_launch_description():
       ],
       parameters= [{'use_sim_time':use_sim_time}],
       output='screen',
-      remappings=[('/scan', '/bot1/scan')]
+      remappings=[('/scan', '/bot2/scan')]
     ),
 
     Node(
@@ -88,15 +88,15 @@ def generate_launch_description():
         '-resolution', res,
         '-publish_period_sec', publish_period
       ],
-      remappings=[('/scan', '/bot1/scan')]
+      remappings=[('/scan', '/bot2/scan')]
     ),
 
-    # Static transform: bot1/odom → bot2/base_link
+    # Static transform: bot2/odom → bot2/base_link
     Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='odom_to_bot1_base_link_tf',
-        arguments=['0', '0', '0', '0', '0', '0', '0', 'bot1/odom', 'bot1/base_link'],
+        name='odom_to_bot2_base_link_tf',
+        arguments=['0', '0', '0', '0', '0', '0', '0', 'bot2/odom', 'bot2/base_link'],
         output='screen'
     )
   ]
