@@ -41,12 +41,12 @@ def generate_launch_description():
                                 output='screen',
                                 emulate_tty=True,
                                 parameters=[parameter_file],
-                                namespace='/',
+                                namespace='bot1',
                                 )
     tf2_node = Node(package='tf2_ros',
                     executable='static_transform_publisher',
                     name='static_tf_pub_laser',
-                    arguments=['0', '0', '0','0', '0', '0', '1','base_link','laser_frame'],
+                    arguments=['0', '0', '0','0', '0', '0', '1','bot1/base_link','bot1/laser_frame'],
                     )
 
     return LaunchDescription([
