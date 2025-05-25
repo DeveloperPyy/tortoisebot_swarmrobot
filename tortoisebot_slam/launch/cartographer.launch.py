@@ -42,16 +42,19 @@ def generate_launch_description():
       default_value=config_directory,
       description='path to the .lua files'
     ),
+
     DeclareLaunchArgument(
       'slam_configuration_basename',
       default_value=slam_config,
       description='name of .lua file to be used'
     ),
+
     DeclareLaunchArgument(
       'localization_configuration_basename',
       default_value=slam_config,
       description='name of .lua file to be used'
     ),
+
     Node(
       package='cartographer_ros',
       condition= IfCondition(exploration),
@@ -63,8 +66,12 @@ def generate_launch_description():
       ],
       parameters= [{'use_sim_time':use_sim_time}],
       output='screen',
-      remappings=[('/scan', '/bot1/scan')]
+      remappings=[
+        ('/scan', '/bot1/scan'),
+        ('/map', '/bot1/map')
+        ]
     ),
+    
     Node(
       package='cartographer_ros',
       condition=IfCondition(PythonExpression(['not ', exploration])),
@@ -76,7 +83,10 @@ def generate_launch_description():
       ],
       parameters= [{'use_sim_time':use_sim_time}],
       output='screen',
-      remappings=[('/scan', '/bot1/scan')]
+      remappings=[
+        ('/scan', '/bot1/scan'),
+        ('/map', '/bot1/map')
+        ]
     ),
 
     Node(
@@ -88,16 +98,10 @@ def generate_launch_description():
         '-resolution', res,
         '-publish_period_sec', publish_period
       ],
-      remappings=[('/scan', '/bot1/scan')]
-    ),
-
-    # Static transform: bot1/odom → bot2/base_link
-    Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='odom_to_bot1_base_link_tf',
-        arguments=['0', '0', '0', '0', '0', '0', '0', 'bot1/odom', 'bot1/base_link'],
-        output='screen'
-    )
+      remappings=[
+        ('/scan', '/bot1/scan'),
+        ('/map', '/bot1/map')
+        ]
+      ),
   ]
 )
